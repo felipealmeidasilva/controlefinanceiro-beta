@@ -1,0 +1,41 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+{% block 'dashboard' %}
+
+<div class="">
+    <div>
+
+        <div class="col-1 col-md-1">
+            <h2>Contato</h2>
+            <br>
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="form-label" style="padding: 2px;">
+                    {{ form }}
+                </div>
+               
+                
+                <br>
+                <div class="d-flex justify-content-start">
+                    <input type="reset" value="Cancelar" class="btn btn-secondary">
+                    &nbsp;
+                    <input type="submit" value="Adicionar" class="btn btn-primary">
+                    <br>
+                    <br>
+                    
+                </div>
+            </form>
+            <br>
+            <br>
+            {{ mensagem }}
+        </div>
+
+    </div>
+    
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+{% block 'dashboard' %}
+
+{% load humanize %}
+<h2>Resumo</h2>
+<div class="cadastros">
+
+    {% for c in cadastros %}
+    <div class="cadastro">
+
+    </div>
+    {% endfor %}
+
+</div>
+{% endblock %}

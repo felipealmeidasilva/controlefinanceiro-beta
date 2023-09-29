@@ -1,0 +1,5 @@
+django == 4.2.5
+pillow
+django-admin-interface
+django-crispy-forms
+#pip install -r requirements.txt

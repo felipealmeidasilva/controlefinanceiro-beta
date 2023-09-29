@@ -1,0 +1,80 @@
+.card-dashboard{
+
+    background-color: var(--main-color);
+    width: 50%;
+    margin-left: 10px;
+    margin-top: 40px;
+    text-align: center;
+    padding: 20px;
+
+}
+
+.text-card{
+
+    font-size: 15px;
+
+}
+.add-div{
+    background-color: var(--dark-color);
+    cursor: pointer;
+    display: inline-block;
+    color: white;
+    border-radius: 5px;
+    margin-right: 20px;
+    justify-content: space-between;
+}
+
+.fas.fa-plus{
+    color: white;
+}
+
+.fa-solid.fa-magnifying-glass{
+    position: absolute;
+    top: 12px;
+}
+
+.list-div{
+  padding: 0;
+}
+
+.cadastro-list{
+    justify-content: space-between;
+    padding-left: 0;
+}
+
+.cadastro-list{
+    font-size: 15px;
+    height: 40px;
+    padding-top: 5px;
+    padding-left: 5px;
+    justify-content: space-between;
+    border: 1px dashed #ccc;
+}
+.cadastros{
+    justify-content: space-between;
+}
+.fas.fa-trash, .fas.fa-edit, .fa-solid.fa-magnifying-glass{
+    cursor: pointer;
+    margin: 5px;
+    font-size: 15px;
+}
+
+p{
+
+    margin-left: 10px;
+    text-align: start;
+    box-sizing: border-box;
+    display: grid;
+}
+
+.linha-vertical{
+    border-left: 2px solid;/* Adiciona borda esquerda na div como ser fosse uma linha.*/
+}
+
+.btn-principal{
+    color:white;
+    border: none;
+    background-color: var(--dark-color);
+    padding: 5px;
+    font-size: 30px;
+}
