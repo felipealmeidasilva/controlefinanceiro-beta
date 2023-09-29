@@ -4,7 +4,9 @@ from .forms import ContatoForm, CadastrarForm
 from django.contrib import messages
 from django.core.paginator import Paginator
 from django.http import Http404
-from django.db.models.aggregates import Sum
+import pandas as pd
+import sqlite3
+import plotly.express as px
 
 # Create your views here.
 def home(request):
@@ -13,6 +15,19 @@ def home(request):
         'cadastros' : cadastros
     }
     data['subtotal'] = 0
+    
+    #dashboard-------------------->
+
+    conexao = sqlite3.connect('db.sqlite3')
+    query = "SELECT * FROM app_cadastro"
+    df = pd.read_sql_query(query, conexao)
+
+    conexao.close()
+
+
+    fig = px.pie(df, values='valor', names='tipo', title='Gastos e Receitas')
+    fig.write_html('app/templates/app/dashboard.html')
+
     return render(request, 'app/home.html', data)
 
 def contato(request):

@@ -1,18 +1,12 @@
+
 {% extends 'app/base.html' %}
 
 {% load static %}
 
 {% block 'dashboard' %}
+<h2>Resumo Financeiro</h2>
+<br>
 
-{% load humanize %}
-<h2>Resumo</h2>
-<div class="cadastros">
+{% include 'app/dashboard.html' %}
 
-    {% for c in cadastros %}
-    <div class="cadastro">
-
-    </div>
-    {% endfor %}
-
-</div>
 {% endblock %}
