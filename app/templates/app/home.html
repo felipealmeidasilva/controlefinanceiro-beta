@@ -4,9 +4,34 @@
 {% load static %}
 
 {% block 'dashboard' %}
+{% load humanize %}
 <h2>Resumo Financeiro</h2>
 <br>
 
+<div class="card-deck">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title" style="color: black;">Total de Receitas: </h5> 
+                <h6 style="color: rgb(8, 172, 8);">R$ {{ receita | intcomma }}</h6>
+                
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title" style="color: black;">Total de Gastos: </h5>
+                <h6 style="color: red;">R$ {{gasto | intcomma }}</h6>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title" style="color: black;">Saldo Total: </h5> 
+                <h6 style="color: rgb(5, 50, 251);">R$ {{ saldo | intcomma }}</h6>
+            </div>
+        </div>
+</div>
+    
+<br>
+<br>
 {% include 'app/dashboard.html' %}
 
 {% endblock %}

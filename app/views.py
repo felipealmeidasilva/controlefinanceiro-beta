@@ -10,20 +10,32 @@ import plotly.express as px
 
 # Create your views here.
 def home(request):
-    cadastros = Cadastro.objects.all()
-    data = {
-        'cadastros' : cadastros
-    }
-    data['subtotal'] = 0
-    
     #dashboard-------------------->
 
     conexao = sqlite3.connect('db.sqlite3')
     query = "SELECT * FROM app_cadastro"
     df = pd.read_sql_query(query, conexao)
 
+    gasto = 0
+    receita = 0
+    saldo = 0
+    for valor, linha in df.iterrows():
+        if linha['tipo'] == 'Gasto':
+            gasto += linha['valor']
+        elif linha['tipo'] == 'Receita':
+            receita += linha['valor']   
+    saldo = receita - gasto
     conexao.close()
-
+    
+    cadastros = Cadastro.objects.all()
+    data = {
+        'cadastros' : cadastros,
+        'gasto' : gasto,
+        'receita' : receita,
+        'saldo': saldo
+    }
+    #data['subtotal'] = 0
+    
 
     fig = px.pie(df, values='valor', names='tipo', title='Gastos e Receitas')
     fig.write_html('app/templates/app/dashboard.html')
